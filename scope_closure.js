@@ -6,12 +6,18 @@
 /****** INSTRUCTIONS TASK 1 ******/
 /* 
  * Study the code below for counter1 and counter2. Answer the questions below.
+ 
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * the counter1 is a function
  * 2. Which of the two uses a closure? How can you tell?
+ * counter2 uses closure which is a 2 function that are run inside another function
  * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 3. In what scenario would the counter1 code be preferable? 
+ * when you wanted to make a refrrence function to run multple times to keep track on another function
+ * 
+ * In what scenario would counter2 be better? 
+ * when your trying to make sipmle code blok that does have callbacks or high order function
  *
 */
 
@@ -22,6 +28,7 @@ function counterMaker() {
     count++;
   }
 }
+
 
 const counter1 = counterMaker();
 
@@ -41,19 +48,34 @@ function counter2() {
 /* Inside the motivation function create another function called message that
 will return 'You're doing awesome, keep it up firstname lastname.' */
 
+
+
+
+
+
 function motivation(firstname, lastname) {
 
-  var welcomeText = 'You\'re doing awesome, keep it up ';
+  var welcomeText = 'You a re doing awesome, keep it up ';
 
   // code message function here.
+  function message(firstname, lastname){
+  return (welcomeText  + firstname + lastname ) 
+  }
 
 
   //Uncommment this to return the value of your invoked message function
-  //return message();
+  return message();
 
 }
 
-motivation('Mohamed', 'Ali'); // 'You're doing awesome keep it up Mohamed Ali.
+ motivation('Mohamed', 'Ali'); // 'You're doing awesome keep it up Mohamed Ali.
+
+
+
+
+
+
+
 
 
 /******************************************************************************\
@@ -67,14 +89,35 @@ users. Write a function that takes in our existing friends and returns
 a function that will tell us if a given user is not already a friend. */
 
 var friends = ["Ahmed", "Khadijo", "Farah"];
+
 var secondLevelFriends = ["Mahad", "Farah", "Mohamed"];
+
 var allUsers = ["Ahmed", "Khadijo", "Farah", "Mahad", "Mohamed", "Bashir", "Ali"];
+
+
 
 function findPotentialFriends(existingFriends) {
 
+   
+ console.log()
+
+  function newfunction (){
+
+   for (let i = 0; i < allUsers.length; i++){
+      
+    
+      console.log(allUsers[i])
+    }
+  }
+ return newfunction();
+
+  
 }
 
-var isNotAFriend = findPotentialFriends( friends );
+console.log(findPotentialFriends( friends, ));
+
+
+
 // isNotAFriend(allUsers[0]); // false
 // isNotAFriend(secondLevelFriends[2]); // true
 
@@ -101,11 +144,19 @@ to 5. What we need to do is console.log(i) so that it logs like so:
 function timeOutCounter() {
   for (var i = 0; i <= 5; i++) {
     setTimeout(function() {
-    	console.log(i)
+    	 console.log(i)
 	}, i * 1000)
   }
+// new function here 
+
+return function(timer){
+
 }
-timeOutCounter();
+
+
+}
+const my = timeOutCounter("timer");
+console.log(timer())
 
 
 /******************************************************************************\
@@ -119,7 +170,7 @@ timeOutCounter();
   If it does, invoke the callback with true as the argument. 
   If the name does not exist, invoke the callback with false as the argument.
 */
-
+-
 
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
