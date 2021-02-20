@@ -31,7 +31,10 @@ let count = 0;
 function counter2() {
   return count++;
 }
-
+counter 1 is closure 
+//counter 1 code is the closure , because of it we are able 
+//to put funsctions together 
+//counter code 2 is  a basic closure 
 
 /******************************************************************************\
 	Task 2: Get Motivated
@@ -43,17 +46,22 @@ will return 'You're doing awesome, keep it up firstname lastname.' */
 
 function motivation(firstname, lastname) {
 
-  var welcomeText = 'You\'re doing awesome, keep it up ';
+  var welcomeText = 'You\'re doing awesome, keep it up '
 
-  // code message function here.
+     function message() {
+      let greeting = welcomeText +  firstname + lastname 
+      return  greeting 
+
+    }
 
 
   //Uncommment this to return the value of your invoked message function
-  //return message();
+   return message();
 
 }
 
-motivation('Mohamed', 'Ali'); // 'You're doing awesome keep it up Mohamed Ali.
+console.log(motivation('Mohamed', 'Ali')); // 'You're doing awesome keep it up Mohamed Ali.
+
 
 
 /******************************************************************************\
@@ -75,6 +83,7 @@ function findPotentialFriends(existingFriends) {
 }
 
 var isNotAFriend = findPotentialFriends( friends );
+
 // isNotAFriend(allUsers[0]); // false
 // isNotAFriend(secondLevelFriends[2]); // true
 
@@ -99,13 +108,34 @@ to 5. What we need to do is console.log(i) so that it logs like so:
  */
 
 function timeOutCounter() {
-  for (var i = 0; i <= 5; i++) {
+  for ( var i = 0; i <= 5; i++) {
     setTimeout(function() {
     	console.log(i)
 	}, i * 1000)
-  }
+  }    
 }
 timeOutCounter();
+
+
+function Counter() {
+  var counter = 0;
+    function IncreaseCounter() {
+    return counter += 1;
+  };
+   return IncreaseCounter;
+}
+let countNum = Counter();
+alert(countNum()); 
+alert(countNum()); 
+alert(countNum()); 
+alert(countNum()); 
+
+
+
+
+
+
+
 
 
 /******************************************************************************\
