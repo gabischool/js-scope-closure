@@ -31,6 +31,10 @@ let count = 0;
 function counter2() {
   return count++;
 }
+// counter 1 is closure 
+//counter 1 code is the closure , because of it we are able 
+//to put funsctions together 
+//counter code 2 is  a basic closure
 
 
 /******************************************************************************\
@@ -44,16 +48,20 @@ will return 'You're doing awesome, keep it up firstname lastname.' */
 function motivation(firstname, lastname) {
 
   var welcomeText = 'You\'re doing awesome, keep it up ';
-
+      var welcomeText = 'You are doing awesome, keep it up '
+      function message() {
+      let greeting = welcomeText +  firstname + lastname 
+      return  greeting 
+    }
   // code message function here.
 
 
   //Uncommment this to return the value of your invoked message function
-  //return message();
+  return message();
 
 }
 
-motivation('Mohamed', 'Ali'); // 'You're doing awesome keep it up Mohamed Ali.
+console.log(motivation('Abdirahman', 'Mohemd')); // 'You're doing awesome keep it up Mohamed Ali.
 
 
 /******************************************************************************\
@@ -106,7 +114,18 @@ function timeOutCounter() {
   }
 }
 timeOutCounter();
-
+function Counter() {
+  var counter = 0;
+    function IncreaseCounter() {
+    return counter += 1;
+  };
+   return IncreaseCounter;
+}
+let countNum = Counter();
+alert(countNum()); 
+alert(countNum()); 
+alert(countNum()); 
+alert(countNum()); 
 
 /******************************************************************************\
 	Task 5: Check if name exists
