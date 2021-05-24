@@ -31,6 +31,11 @@ let count = 0;
 function counter2() {
   return count++;
 }
+// counter 1 is closure 
+//counter 1 code is the closure , because of it we are able 
+//to put funsctions together 
+//counter code 2 is  function
+//closure is preferable becuase it does continued the numbers and it's have refrence
 
 
 /******************************************************************************\
@@ -46,14 +51,17 @@ function motivation(firstname, lastname) {
   var welcomeText = 'You\'re doing awesome, keep it up ';
 
   // code message function here.
+  function message() {
+   return `${elcomeText} ${firstname} ${lastname}`
 
+  }
 
   //Uncommment this to return the value of your invoked message function
-  //return message();
+  return message();
 
 }
 
-motivation('Mohamed', 'Ali'); // 'You're doing awesome keep it up Mohamed Ali.
+console.log(motivation('Abdirahman', 'Mohemd')); // 'You're doing awesome keep it up Mohamed Ali.
 
 
 /******************************************************************************\
@@ -71,7 +79,13 @@ var secondLevelFriends = ["Mahad", "Farah", "Mohamed"];
 var allUsers = ["Ahmed", "Khadijo", "Farah", "Mahad", "Mohamed", "Bashir", "Ali"];
 
 function findPotentialFriends(existingFriends) {
-
+  for (var i=0; i < users.length; i++) {
+    user = users[i];
+    if (friends.indexOf(secondLevelFriends) >= 0) {
+      console.log(secondLevelFriends + ' is freind');
+    } else {
+      console.log(secondLevelFriends + ' is not friend!!!');
+   
 }
 
 var isNotAFriend = findPotentialFriends( friends );
@@ -106,7 +120,18 @@ function timeOutCounter() {
   }
 }
 timeOutCounter();
-
+function Counter() {
+  var counter = 0;
+    function IncreaseCounter() {
+    return counter += 1;
+  };
+   return IncreaseCounter;
+}
+let countNum = Counter();
+alert(countNum()); 
+alert(countNum()); 
+alert(countNum()); 
+alert(countNum()); 
 
 /******************************************************************************\
 	Task 5: Check if name exists
