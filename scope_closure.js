@@ -8,11 +8,12 @@
  * Study the code below for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter 1  contain two function whether function two has only one fucntion
+ 
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter 1 becouse it has two fucntion 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * nothing as i see but i prefer counter two becouse its more reliable and understandable
 */
 
 // counter1 code
@@ -42,6 +43,9 @@ function counter2() {
 will return 'You're doing awesome, keep it up firstname lastname.' */
 
 function motivation(firstname, lastname) {
+  return function message(){
+    console.log(welcomeText + " "+firstname+" "+lastname)
+  }
 
   var welcomeText = 'You\'re doing awesome, keep it up ';
 
@@ -49,7 +53,7 @@ function motivation(firstname, lastname) {
 
 
   //Uncommment this to return the value of your invoked message function
-  //return message();
+return message();
 
 }
 
@@ -71,10 +75,15 @@ var secondLevelFriends = ["Mahad", "Farah", "Mohamed"];
 var allUsers = ["Ahmed", "Khadijo", "Farah", "Mahad", "Mohamed", "Bashir", "Ali"];
 
 function findPotentialFriends(existingFriends) {
-
+  if(friends==secondLevelFriends&&friends==allUsers){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 
-var isNotAFriend = findPotentialFriends( friends );
+var isNotAFriend = findPotentialFriends(friends);
 // isNotAFriend(allUsers[0]); // false
 // isNotAFriend(secondLevelFriends[2]); // true
 
@@ -105,7 +114,7 @@ function timeOutCounter() {
 	}, i * 1000)
   }
 }
-timeOutCounter();
+const ref=timeOutCounter();
 
 
 /******************************************************************************\
@@ -119,7 +128,14 @@ timeOutCounter();
   If it does, invoke the callback with true as the argument. 
   If the name does not exist, invoke the callback with false as the argument.
 */
-
+function contains(array,name,callback){
+  if(name==array){
+    return true
+  }
+  else{
+    return false;
+  }
+}
 
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
@@ -127,15 +143,27 @@ timeOutCounter();
 
 // ==== Challenge 2: Create a counter function ====
 const counter = () => {
+  return function increment(){
+    return counter()
+  }
     // Return a function that when invoked increments and returns a counter variable.
   };
-  // Example usage: const newCounter = counter();
-  // newCounter(); // 1
-  // newCounter(); // 2
+  const newCounter = counter();
+  newCounter(); // 1
+  newCounter(); // 2
   
   // ==== Challenge 3: Create a counter function with an object that can increment and decrement ====
   const counterFactory = () => {
+  function increment(){
+   counter++;
+   return increment;
+ }
+
+ function decrement(){
+  counter++;
+  return decrement;
     // Return an object that has two methods called `increment` and `decrement`.
     // `increment` should increment a counter variable in closure scope and return it.
     // `decrement` should decrement the counter variable and return it.
-  };
+  }
+}
